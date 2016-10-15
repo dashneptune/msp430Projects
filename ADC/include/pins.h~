@@ -1,0 +1,7 @@
+
+#define LED	0x01
+#define ANALOG_IN	BIT1
+
+#define UPPER_LED	0x04
+#define LOWER_LED	0x08
+

@@ -1,0 +1,58 @@
+#include <msp430.h>
+#include "pins.h"
+
+void port1_init ();
+void port2_init ();
+void timer_init ();
+void adc_init ();
+
+void device_init (){
+	port1_init ();
+	port2_init ();
+	timer_init ();
+	adc_init ();
+}
+
+void port1_init (){
+	P1OUT = 0x00;
+	P1DIR = 0xFF;
+	P1SEL = 0x00;
+	P1SEL2 = 0x00;
+	P1REN = 0x00;
+	P1IE = 0x00;
+	P1IFG = 0x00;
+}
+
+void port2_init (){
+	P2OUT = 0x00;
+	P2DIR = 0xFF;
+	P2SEL = 0x00;
+	P2SEL2 = 0x00;
+	P2REN = 0x00;
+	P2IE = 0x00;
+	P2IFG = 0x00;
+}
+
+void adc_init (){
+	ADC10CTL0 = SREF_0 | ADC10SHT_3 | REFON | ADC10ON | ADC10IE;
+	// reference from V++ and gnd, use 64 clocks of the ADC10CLK for sampling, turn the reference on, turn the adc on, enable ADC interrupts
+	ADC10CTL1 = INCH_1 | SHS_1 | ADC10DIV_0  | ADC10SSEL_0 | CONSEQ_2;
+	// enable input from input channel 1, trigger from timer channel1 out, don't divide the clock, source clock from SMCLK, single channel single sequence
+	ADC10AE0 = ANALOG_IN;
+	// enable the analog mux
+}
+
+// the timer should trigger the ADC on OUT1
+// it is going to output in Set/Reset mode
+// the adc takes a total of 64 + 12 + 1 clock cycles for conversion
+// so the total period should be at least 77 cyclesd
+void timer_init (){
+	TA0CCR0 = 0x00FF;
+	TA0CCR1 = 0x000F;
+	TA0CCTL0 = 0x00;
+	TA0CCTL1 = OUTMOD_3;
+	TA0CTL = TASSEL_2 | ID_3 | TACLR;
+	// use SMCLK, don't prescale the timer, clear the value in the timer
+
+}
+
