@@ -12,7 +12,6 @@
 
 void sensechannels (uint8_t *array, uint8_t numberofchannels);
 void send_messages (int8_t *diffptr, uint8_t length, uint8_t velocity);
-void 
 
 int main (void){
 	uint8_t currentarray[NUMBER_OF_CHANNELS];	// array to hold newest read of states
@@ -70,6 +69,7 @@ void send_messages (int8_t *array, uint8_t length, uint8_t velocity){
 
 
 }
+
 void sensechannels (uint8_t *array, uint8_t numberofchannels){
 	uint8_t ctr;
 	uint8_t cache = P2OUT;
@@ -85,7 +85,6 @@ void sensechannels (uint8_t *array, uint8_t numberofchannels){
 		P2OUT = cache;
 	}
 }
-
 
 __attribute__((interrupt(ADC10_VECTOR)))
 void isr_ADC (void){
