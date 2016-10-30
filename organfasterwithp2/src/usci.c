@@ -25,7 +25,6 @@ void isr_usci (void){
 			__low_power_mode_off_on_exit ();
 			ctr = 0;
 			IE2 &= ~UCA0TXIE;
-			P1OUT ^= LED;
 		}
 	}
 }

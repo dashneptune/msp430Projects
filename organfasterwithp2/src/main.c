@@ -30,6 +30,9 @@ void main (void){
 	device_init ();			// initialize the device (in board.c)
 	__enable_interrupt ();		// enable interrupts
 	while (1){			// the big forever loop in the sky
+	uint8_t message[3] = {0xAA, 0xAA, 0xAA};
+	send_data (message,3);
+/*
 		sensechannels (currentarray, NUMBER_OF_CHANNELS);
 		// get the current state of all of the channels
 		numberofmessages = filldiffarray (currentarray, NUMBER_OF_CHANNELS, lastarray, diffarray);
@@ -40,21 +43,21 @@ void main (void){
 		// if the number of messages is greatre than 0, send messages over midi
 		copyarray (currentarray, NUMBER_OF_CHANNELS, lastarray);
 		// copy the current state array to the last one
+*/
 	}
 }
 
 void send_messages (int8_t *array, uint8_t length, uint8_t velocity){
 	uint8_t ctr;
-	uint8_t messagearray[3];
+	uint8_t messagearray[3] = {NOTE_ON, 0, 0};
 	for (ctr = 0; ctr < length; ctr++){
 		if (*(array+ctr) != 0){
 			if (*(array+ctr) > 0){
-				messagearray[0] = NOTE_ON;
+				messagearray[2] = velocity;
 			} else if (*(array+ctr) < 0){
-				messagearray[0] = NOTE_OFF;
+				messagearray[2] = 0;
 			}
 			messagearray[1] = ctr;
-			messagearray[2] = velocity;
 			send_data (messagearray, 3);
 		}
 	}

@@ -1,0 +1,54 @@
+\hypertarget{arrayhandlers_8c}{}\section{src/arrayhandlers.c File Reference}
+\label{arrayhandlers_8c}\index{src/arrayhandlers.\+c@{src/arrayhandlers.\+c}}
+{\ttfamily \#include \char`\"{}arrayhandlers.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}msp430.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pins.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{arrayhandlers_8c_a5eb965dd42ed714cc4b40f2fd091c86d}{zeroarray\+\_\+unsigned} (uint8\+\_\+t $\ast$array, uint8\+\_\+t length)
+\item 
+void \hyperlink{arrayhandlers_8c_ab6ca7ffcffb8751ed8e1a59731c31748}{zeroarray\+\_\+signed} (int8\+\_\+t $\ast$array, uint8\+\_\+t length)
+\item 
+uint16\+\_\+t \hyperlink{arrayhandlers_8c_a98c5e0e723ab1ed0a261ed30fed9ce99}{filldiffarray} (uint8\+\_\+t $\ast$currentarray, uint8\+\_\+t length, uint8\+\_\+t $\ast$lastarray, int8\+\_\+t $\ast$diffarray)
+\item 
+void \hyperlink{arrayhandlers_8c_ad55e4e2e360fa636c6cc8d848fe448a7}{copyarray} (uint8\+\_\+t $\ast$arraytocopy, uint8\+\_\+t length, uint8\+\_\+t $\ast$copytoarray)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{arrayhandlers.\+c@{arrayhandlers.\+c}!copyarray@{copyarray}}
+\index{copyarray@{copyarray}!arrayhandlers.\+c@{arrayhandlers.\+c}}
+\subsubsection[{\texorpdfstring{copyarray(uint8\+\_\+t $\ast$arraytocopy, uint8\+\_\+t length, uint8\+\_\+t $\ast$copytoarray)}{copyarray(uint8_t *arraytocopy, uint8_t length, uint8_t *copytoarray)}}]{\setlength{\rightskip}{0pt plus 5cm}void copyarray (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{arraytocopy, }
+\item[{uint8\+\_\+t}]{length, }
+\item[{uint8\+\_\+t $\ast$}]{copytoarray}
+\end{DoxyParamCaption}
+)}\hypertarget{arrayhandlers_8c_ad55e4e2e360fa636c6cc8d848fe448a7}{}\label{arrayhandlers_8c_ad55e4e2e360fa636c6cc8d848fe448a7}
+\index{arrayhandlers.\+c@{arrayhandlers.\+c}!filldiffarray@{filldiffarray}}
+\index{filldiffarray@{filldiffarray}!arrayhandlers.\+c@{arrayhandlers.\+c}}
+\subsubsection[{\texorpdfstring{filldiffarray(uint8\+\_\+t $\ast$currentarray, uint8\+\_\+t length, uint8\+\_\+t $\ast$lastarray, int8\+\_\+t $\ast$diffarray)}{filldiffarray(uint8_t *currentarray, uint8_t length, uint8_t *lastarray, int8_t *diffarray)}}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t filldiffarray (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{currentarray, }
+\item[{uint8\+\_\+t}]{length, }
+\item[{uint8\+\_\+t $\ast$}]{lastarray, }
+\item[{int8\+\_\+t $\ast$}]{diffarray}
+\end{DoxyParamCaption}
+)}\hypertarget{arrayhandlers_8c_a98c5e0e723ab1ed0a261ed30fed9ce99}{}\label{arrayhandlers_8c_a98c5e0e723ab1ed0a261ed30fed9ce99}
+\index{arrayhandlers.\+c@{arrayhandlers.\+c}!zeroarray\+\_\+signed@{zeroarray\+\_\+signed}}
+\index{zeroarray\+\_\+signed@{zeroarray\+\_\+signed}!arrayhandlers.\+c@{arrayhandlers.\+c}}
+\subsubsection[{\texorpdfstring{zeroarray\+\_\+signed(int8\+\_\+t $\ast$array, uint8\+\_\+t length)}{zeroarray_signed(int8_t *array, uint8_t length)}}]{\setlength{\rightskip}{0pt plus 5cm}void zeroarray\+\_\+signed (
+\begin{DoxyParamCaption}
+\item[{int8\+\_\+t $\ast$}]{array, }
+\item[{uint8\+\_\+t}]{length}
+\end{DoxyParamCaption}
+)}\hypertarget{arrayhandlers_8c_ab6ca7ffcffb8751ed8e1a59731c31748}{}\label{arrayhandlers_8c_ab6ca7ffcffb8751ed8e1a59731c31748}
+\index{arrayhandlers.\+c@{arrayhandlers.\+c}!zeroarray\+\_\+unsigned@{zeroarray\+\_\+unsigned}}
+\index{zeroarray\+\_\+unsigned@{zeroarray\+\_\+unsigned}!arrayhandlers.\+c@{arrayhandlers.\+c}}
+\subsubsection[{\texorpdfstring{zeroarray\+\_\+unsigned(uint8\+\_\+t $\ast$array, uint8\+\_\+t length)}{zeroarray_unsigned(uint8_t *array, uint8_t length)}}]{\setlength{\rightskip}{0pt plus 5cm}void zeroarray\+\_\+unsigned (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{array, }
+\item[{uint8\+\_\+t}]{length}
+\end{DoxyParamCaption}
+)}\hypertarget{arrayhandlers_8c_a5eb965dd42ed714cc4b40f2fd091c86d}{}\label{arrayhandlers_8c_a5eb965dd42ed714cc4b40f2fd091c86d}

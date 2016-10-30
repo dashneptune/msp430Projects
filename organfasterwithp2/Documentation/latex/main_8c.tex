@@ -1,0 +1,65 @@
+\hypertarget{main_8c}{}\section{src/main.c File Reference}
+\label{main_8c}\index{src/main.\+c@{src/main.\+c}}
+{\ttfamily \#include $<$msp430.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}pins.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}watchdog.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}board.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}usci.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}arrayhandlers.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{main_8c_a46dfe6a641c7b31b68e3c2000548dc4c}{N\+O\+T\+E\+\_\+\+ON}~0x90
+\item 
+\#define \hyperlink{main_8c_af6761b4f7bb49361779aa347440fd4ac}{N\+O\+T\+E\+\_\+\+O\+FF}~0x80
+\item 
+\#define \hyperlink{main_8c_a4b41dfc84609ff0b3011e9fdc74ac8b8}{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+C\+H\+A\+N\+N\+E\+LS}~8
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{main_8c_a0d40224383e788928d5ed42266fbca0b}{sensechannels} (uint8\+\_\+t $\ast$array, uint8\+\_\+t numberofchannels)
+\item 
+void \hyperlink{main_8c_a4d88af9a999c7d1e19b0f6794fd0e218}{send\+\_\+messages} (int8\+\_\+t $\ast$diffptr, uint8\+\_\+t length, uint8\+\_\+t velocity)
+\item 
+void \hyperlink{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}{main} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{main.\+c@{main.\+c}!N\+O\+T\+E\+\_\+\+O\+FF@{N\+O\+T\+E\+\_\+\+O\+FF}}
+\index{N\+O\+T\+E\+\_\+\+O\+FF@{N\+O\+T\+E\+\_\+\+O\+FF}!main.\+c@{main.\+c}}
+\subsubsection[{\texorpdfstring{N\+O\+T\+E\+\_\+\+O\+FF}{NOTE_OFF}}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+O\+T\+E\+\_\+\+O\+FF~0x80}\hypertarget{main_8c_af6761b4f7bb49361779aa347440fd4ac}{}\label{main_8c_af6761b4f7bb49361779aa347440fd4ac}
+\index{main.\+c@{main.\+c}!N\+O\+T\+E\+\_\+\+ON@{N\+O\+T\+E\+\_\+\+ON}}
+\index{N\+O\+T\+E\+\_\+\+ON@{N\+O\+T\+E\+\_\+\+ON}!main.\+c@{main.\+c}}
+\subsubsection[{\texorpdfstring{N\+O\+T\+E\+\_\+\+ON}{NOTE_ON}}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+O\+T\+E\+\_\+\+ON~0x90}\hypertarget{main_8c_a46dfe6a641c7b31b68e3c2000548dc4c}{}\label{main_8c_a46dfe6a641c7b31b68e3c2000548dc4c}
+\index{main.\+c@{main.\+c}!N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+C\+H\+A\+N\+N\+E\+LS@{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+C\+H\+A\+N\+N\+E\+LS}}
+\index{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+C\+H\+A\+N\+N\+E\+LS@{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+C\+H\+A\+N\+N\+E\+LS}!main.\+c@{main.\+c}}
+\subsubsection[{\texorpdfstring{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+C\+H\+A\+N\+N\+E\+LS}{NUMBER_OF_CHANNELS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+C\+H\+A\+N\+N\+E\+LS~8}\hypertarget{main_8c_a4b41dfc84609ff0b3011e9fdc74ac8b8}{}\label{main_8c_a4b41dfc84609ff0b3011e9fdc74ac8b8}
+
+
+\subsection{Function Documentation}
+\index{main.\+c@{main.\+c}!main@{main}}
+\index{main@{main}!main.\+c@{main.\+c}}
+\subsubsection[{\texorpdfstring{main(void)}{main(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void main (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}{}\label{main_8c_a6288eba0f8e8ad3ab1544ad731eb7667}
+\index{main.\+c@{main.\+c}!send\+\_\+messages@{send\+\_\+messages}}
+\index{send\+\_\+messages@{send\+\_\+messages}!main.\+c@{main.\+c}}
+\subsubsection[{\texorpdfstring{send\+\_\+messages(int8\+\_\+t $\ast$diffptr, uint8\+\_\+t length, uint8\+\_\+t velocity)}{send_messages(int8_t *diffptr, uint8_t length, uint8_t velocity)}}]{\setlength{\rightskip}{0pt plus 5cm}void send\+\_\+messages (
+\begin{DoxyParamCaption}
+\item[{int8\+\_\+t $\ast$}]{diffptr, }
+\item[{uint8\+\_\+t}]{length, }
+\item[{uint8\+\_\+t}]{velocity}
+\end{DoxyParamCaption}
+)}\hypertarget{main_8c_a4d88af9a999c7d1e19b0f6794fd0e218}{}\label{main_8c_a4d88af9a999c7d1e19b0f6794fd0e218}
+\index{main.\+c@{main.\+c}!sensechannels@{sensechannels}}
+\index{sensechannels@{sensechannels}!main.\+c@{main.\+c}}
+\subsubsection[{\texorpdfstring{sensechannels(uint8\+\_\+t $\ast$array, uint8\+\_\+t numberofchannels)}{sensechannels(uint8_t *array, uint8_t numberofchannels)}}]{\setlength{\rightskip}{0pt plus 5cm}void sensechannels (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{array, }
+\item[{uint8\+\_\+t}]{numberofchannels}
+\end{DoxyParamCaption}
+)}\hypertarget{main_8c_a0d40224383e788928d5ed42266fbca0b}{}\label{main_8c_a0d40224383e788928d5ed42266fbca0b}

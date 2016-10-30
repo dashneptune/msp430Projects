@@ -1,0 +1,44 @@
+.TH "src/arrayhandlers.c" 3 "Sun Oct 16 2016" "Organ With Port2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/arrayhandlers.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'arrayhandlers\&.h'\fP
+.br
+\fC#include 'msp430\&.h'\fP
+.br
+\fC#include 'pins\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBzeroarray_unsigned\fP (uint8_t *array, uint8_t length)"
+.br
+.ti -1c
+.RI "void \fBzeroarray_signed\fP (int8_t *array, uint8_t length)"
+.br
+.ti -1c
+.RI "uint16_t \fBfilldiffarray\fP (uint8_t *currentarray, uint8_t length, uint8_t *lastarray, int8_t *diffarray)"
+.br
+.ti -1c
+.RI "void \fBcopyarray\fP (uint8_t *arraytocopy, uint8_t length, uint8_t *copytoarray)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void copyarray (uint8_t * arraytocopy, uint8_t length, uint8_t * copytoarray)"
+
+.SS "uint16_t filldiffarray (uint8_t * currentarray, uint8_t length, uint8_t * lastarray, int8_t * diffarray)"
+
+.SS "void zeroarray_signed (int8_t * array, uint8_t length)"
+
+.SS "void zeroarray_unsigned (uint8_t * array, uint8_t length)"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Organ With Port2 from the source code\&.

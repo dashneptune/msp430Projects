@@ -1,0 +1,46 @@
+\hypertarget{usci_8c}{}\section{src/usci.c File Reference}
+\label{usci_8c}\index{src/usci.\+c@{src/usci.\+c}}
+{\ttfamily \#include $<$msp430.\+h$>$}\\*
+{\ttfamily \#include $<$usci.\+h$>$}\\*
+{\ttfamily \#include $<$pins.\+h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structtx__struct}{tx\+\_\+struct}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{usci_8c_ad334956fd2cf4874a6475042cd4da1a0}{send\+\_\+data} (uint8\+\_\+t $\ast$tx, uint8\+\_\+t txlength)
+\item 
+\hyperlink{usci_8c_ae5fdb5b751ff25202a68c83eb5341657}{\+\_\+\+\_\+attribute\+\_\+\+\_\+} ((interrupt(U\+S\+C\+I\+A\+B0\+T\+X\+\_\+\+V\+E\+C\+T\+OR)))
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structtx__struct}{tx\+\_\+struct} \hyperlink{usci_8c_ac7d46cb11ec681837e01a02594fc6c74}{tx\+\_\+struct}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{usci.\+c@{usci.\+c}!\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+attribute\+\_\+\+\_\+@{\+\_\+\+\_\+attribute\+\_\+\+\_\+}!usci.\+c@{usci.\+c}}
+\subsubsection[{\texorpdfstring{\+\_\+\+\_\+attribute\+\_\+\+\_\+((interrupt(\+U\+S\+C\+I\+A\+B0\+T\+X\+\_\+\+V\+E\+C\+T\+O\+R)))}{__attribute__((interrupt(USCIAB0TX_VECTOR)))}}]{\setlength{\rightskip}{0pt plus 5cm}\+\_\+\+\_\+attribute\+\_\+\+\_\+ (
+\begin{DoxyParamCaption}
+\item[{(interrupt(U\+S\+C\+I\+A\+B0\+T\+X\+\_\+\+V\+E\+C\+T\+OR))}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{usci_8c_ae5fdb5b751ff25202a68c83eb5341657}{}\label{usci_8c_ae5fdb5b751ff25202a68c83eb5341657}
+\index{usci.\+c@{usci.\+c}!send\+\_\+data@{send\+\_\+data}}
+\index{send\+\_\+data@{send\+\_\+data}!usci.\+c@{usci.\+c}}
+\subsubsection[{\texorpdfstring{send\+\_\+data(uint8\+\_\+t $\ast$tx, uint8\+\_\+t txlength)}{send_data(uint8_t *tx, uint8_t txlength)}}]{\setlength{\rightskip}{0pt plus 5cm}void send\+\_\+data (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$}]{tx, }
+\item[{uint8\+\_\+t}]{txlength}
+\end{DoxyParamCaption}
+)}\hypertarget{usci_8c_ad334956fd2cf4874a6475042cd4da1a0}{}\label{usci_8c_ad334956fd2cf4874a6475042cd4da1a0}
+
+
+\subsection{Variable Documentation}
+\index{usci.\+c@{usci.\+c}!tx\+\_\+struct@{tx\+\_\+struct}}
+\index{tx\+\_\+struct@{tx\+\_\+struct}!usci.\+c@{usci.\+c}}
+\subsubsection[{\texorpdfstring{tx\+\_\+struct}{tx_struct}}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf tx\+\_\+struct} {\bf tx\+\_\+struct}}\hypertarget{usci_8c_ac7d46cb11ec681837e01a02594fc6c74}{}\label{usci_8c_ac7d46cb11ec681837e01a02594fc6c74}

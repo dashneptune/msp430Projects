@@ -8,6 +8,7 @@ void zeroarray_unsigned (uint8_t *array, uint8_t length){
 		*(array + ctr) = 0;
 	}
 }
+
 void zeroarray_signed (int8_t *array, uint8_t length){
 	uint8_t ctr;
 	for (ctr = 0; ctr < length; ctr++){
@@ -26,7 +27,8 @@ uint16_t filldiffarray (uint8_t *currentarray, uint8_t length, uint8_t *lastarra
 				*(diffarray + ctr) = -1;
 			}
 			diffctr++;
-		}else {
+			P1OUT ^= LED;
+		} else {
 			*(diffarray + ctr) = 0;
 		}
 	}
