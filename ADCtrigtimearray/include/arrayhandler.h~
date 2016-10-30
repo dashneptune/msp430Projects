@@ -1,4 +1,0 @@
-
-
-unsigned int average_array (unsigned int *array, unsigned int length);
-unsigned int zero_array (unsigned int *array, unsigned int length);
