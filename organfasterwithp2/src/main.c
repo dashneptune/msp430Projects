@@ -1,12 +1,19 @@
 #include <msp430.h>
-#include "pins.h"
-#include "watchdog.h"
-#include "board.h"
-#include "usci.h"
-#include "arrayhandlers.h"
+// Author: Marc Olberding
+// Project: organfasterwithp2
+// purpose: to implement a MIDI organ with 8 keys and general velocity number
+// the keys are sensed on port 2 and the velocity is measured by the ADC
 
-#define NOTE_ON		0x90
-#define NOTE_OFF	0x80
+
+
+#include "pins.h"		// pin definitions
+#include "watchdog.h"		// watchdog access
+#include "board.h"		// board initialization
+#include "usci.h"		// asynchronous serial
+#include "arrayhandlers.h"	// array handlers
+
+#define NOTE_ON		0x90	// MIDI note on definition
+#define NOTE_OFF	0x80	// MIDI note off definiton
 
 #define NUMBER_OF_CHANNELS	8
 
@@ -22,6 +29,7 @@ void main (void){
 	// array to hold the difference of states between last and current read
 	uint8_t numberofmessages;	// number of messages
 	uint8_t velocity = 127;		// velocity to send over MIDI
+
 	stop_watchdog ();		// stop the watchdog timer
 	// zero the arrays
 	zeroarray_unsigned (currentarray, NUMBER_OF_CHANNELS);
@@ -29,6 +37,7 @@ void main (void){
 	zeroarray_signed (diffarray, NUMBER_OF_CHANNELS);
 	device_init ();			// initialize the device (in board.c)
 	__enable_interrupt ();		// enable interrupts
+
 	while (1){			// the big forever loop in the sky
 	uint8_t message[3] = {0xAA, 0xAA, 0xAA};
 	send_data (message,3);
@@ -51,14 +60,14 @@ void send_messages (int8_t *array, uint8_t length, uint8_t velocity){
 	uint8_t ctr;
 	uint8_t messagearray[3] = {NOTE_ON, 0, 0};
 	for (ctr = 0; ctr < length; ctr++){
-		if (*(array+ctr) != 0){
-			if (*(array+ctr) > 0){
+		if (*(array+ctr) != 0){	// if there is a non zero difference
+			if (*(array+ctr) > 0){	// set the velocity to a non zero number if it is to be a note-on message
 				messagearray[2] = velocity;
 			} else if (*(array+ctr) < 0){
-				messagearray[2] = 0;
+				messagearray[2] = 0;	// set the velocity to be zero if it is a note off message
 			}
-			messagearray[1] = ctr;
-			send_data (messagearray, 3);
+			messagearray[1] = ctr;		// set the note number
+			send_data (messagearray, 3);	// send the message
 		}
 	}
 }
@@ -67,8 +76,8 @@ void sensechannels (uint8_t *array, uint8_t numberofchannels){
 	uint8_t ctr;
 	uint8_t mask = 0x01;
 	for (ctr = 0; ctr < numberofchannels;ctr++ ){
-		P2OUT = mask;
-		*(array + ctr) = ((P2IN & mask) == 0);
-		mask <<= 1;
+		P2OUT = mask;	// apply a "one hot" mask to port 2
+		*(array + ctr) = ((P2IN & mask) == 0);	// fill the array we are looking with
+		mask <<= 1;	// shift the mask
 	}
 }
