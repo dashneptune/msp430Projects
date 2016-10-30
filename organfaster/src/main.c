@@ -47,13 +47,14 @@ int main (void){
 	}
 	return (1);
 }
+
 void send_messages (int8_t *array, uint8_t length, uint8_t velocity){
 	uint8_t ctr;
 	uint8_t tmp;
 	uint8_t messagearray[3];
 	for (ctr = 0; ctr < length; ctr++){
-		if (*(array+ctr) != 0){
-			if (*(array+ctr) > 0){
+		if (*(array+ctr) != 0){	// if there is a state change to be sent
+			if (*(array+ctr) > 0){	// check if its a note on or a note off
 				messagearray[0] = NOTE_ON;
 				messagearray[1] = *(array + ctr);
 				messagearray[2] = velocity;
@@ -63,12 +64,21 @@ void send_messages (int8_t *array, uint8_t length, uint8_t velocity){
 				messagearray[1] = tmp;
 				messagearray[2] = velocity;
 			}
-			send_data (messagearray, 3);
+			send_data (messagearray, 3);	// send it
 		}
 	}
 
 
 }
+
+//
+// sensechannels: senses 8 channels using a 3 bit multiplexor
+// params:
+//	array: an array of 8 bit characters that represents the state (on or off) of the 8 pins
+//	numberofchannels: number of channels, maximum of 2^7
+// returns:
+//	nothing
+
 
 void sensechannels (uint8_t *array, uint8_t numberofchannels){
 	uint8_t ctr;
@@ -76,7 +86,6 @@ void sensechannels (uint8_t *array, uint8_t numberofchannels){
 	cache &= ~MUX_PINS;
 	P2OUT = cache;
 	for (ctr = 0; ctr < numberofchannels; ){
-		__delay_cycles (1000);
 		*(array + ctr) = ((P2IN & MUX_IN) == 0);
 		ctr++;
 		cache = P2OUT;
@@ -85,6 +94,9 @@ void sensechannels (uint8_t *array, uint8_t numberofchannels){
 		P2OUT = cache;
 	}
 }
+
+// adc_isr:
+//	interrupt service routine for analog to digital converter
 
 __attribute__((interrupt(ADC10_VECTOR)))
 void isr_ADC (void){
